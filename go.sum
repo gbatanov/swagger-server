@@ -1,0 +1,6 @@
+github.com/andelf/go-curl v0.0.0-20200630032108-fd49ff24ed97 h1:Nyfs+rh56aORy2tGMI9GCYEqTfePwL1v47qOzebfv/o=
+github.com/andelf/go-curl v0.0.0-20200630032108-fd49ff24ed97/go.mod h1:WO1d2m1QDzkoPcgn9lgHVMi7qQR5j3jxYjIIvMTHpC0=
+github.com/golang-jwt/jwt/v5 v5.0.0 h1:1n1XNM9hk7O9mnQoNBGolZvzebBQ7p93ULHRc28XJUE=
+github.com/golang-jwt/jwt/v5 v5.0.0/go.mod h1:pqrtFR0X4osieyHYxtmOUWsAWrfe1Q5UVIyoH402zdk=
+github.com/matishsiao/goInfo v0.0.0-20210923090445-da2e3fa8d45f h1:B0OD7nYl2FPQEVrw8g2uyc1lGEzNbvrKh7fspGZcbvY=
+github.com/matishsiao/goInfo v0.0.0-20210923090445-da2e3fa8d45f/go.mod h1:aEt7p9Rvh67BYApmZwNDPpgircTO2kgdmDUoF/1QmwA=

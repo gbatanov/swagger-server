@@ -1,0 +1,203 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Swagger API от Георгия",
+      "version": "1.2.1"
+    },
+    "servers": [
+      {
+        "url": "http://192.168.88.70:2121",
+        "description": "Тестовый swagger-сервер"
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      },
+      "responses": {
+        "UnauthorizedError": {
+          "description": "Авторизация не пройдена"
+        },
+        "Ok": {
+          "description": "OK"
+        },
+        "Error500": {
+          "description": "Сервер недоступен"
+        }
+      }
+    },
+    "paths": {
+      "/token": {
+        "post": {
+          "tags": [
+            "Authorization"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "login": {
+                      "description": "Логин",
+                      "type": "string"
+                    },
+                    "password": {
+                      "description": "Пароль",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "login",
+                    "password"
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "$ref": "#/components/responses/Ok"
+            },
+            "401": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            },
+            "500": {
+              "$ref": "#/components/responses/Error500"
+            }
+          }
+        }
+      },
+      "/metrics": {
+        "get": {
+          "tags": [
+            "Metrics"
+          ],
+          "responses": {
+            "200": {
+              "$ref": "#/components/responses/Ok"
+            },
+            "401": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            },
+            "500": {
+              "$ref": "#/components/responses/Error500"
+            }
+          }
+        }
+      },
+      "/test/{param1}": {
+        "get": {
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "tags": [
+            "Test"
+          ],
+          "summary": "Тестирование запроса с параметрами в Url",
+          "description": "Тестирование запроса с параметрами в Url",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "param1",
+              "schema": {
+                "type": "string"
+              },
+              "description": "param1 - это строковый необязательная часть Url",
+              "required": true
+            }
+          ],
+          "responses": {
+            "200": {
+              "$ref": "#/components/responses/Ok"
+            },
+            "401": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            },
+            "500": {
+              "$ref": "#/components/responses/Error500"
+            }
+          }
+        }
+      },
+      "/test_post/?param1={param1}": {
+        "post": {
+          "security": [
+            {
+              "bearerAuth": []
+            }
+          ],
+          "tags": [
+            "Test"
+          ],
+          "parameters": [
+            {
+              "in": "query",
+              "name": "param1",
+              "schema": {
+                "type": "string"
+              },
+              "description": "param1 - это строковый необязательный GET-параметр"
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "parampost1": {
+                      "description": "Имя первого POST-параметра",
+                      "type": "string"
+                    },
+                    "parampost2": {
+                      "description": "Имя второго POST-параметра",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "parampost2"
+                  ]
+                }
+              },
+              "application/x-www-form-urlencoded": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "parampost1": {
+                      "description": "Имя первого POST-параметра",
+                      "type": "string"
+                    },
+                    "parampost2": {
+                      "description": "Имя второго POST-параметра",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "parampost2"
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "$ref": "#/components/responses/Ok"
+            },
+            "401": {
+              "$ref": "#/components/responses/UnauthorizedError"
+            },
+            "500": {
+              "$ref": "#/components/responses/Error500"
+            }
+          }
+        }
+      }
+    }
+  }

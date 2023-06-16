@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/gbatanov/go/src/gbatanov/swagger-server'
+rm -rf ./bin || true
+mkdir -p ./bin || true
+GOOS=linux GOARCH=amd64 go build -o bin/hello-server .
+make: Leaving directory '/home/gbatanov/go/src/gbatanov/swagger-server'
+ 
