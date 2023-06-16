@@ -19,7 +19,7 @@ import (
 	"github.com/matishsiao/goInfo"
 )
 
-const Version = "0.7.23"
+const Version = "0.7.24"
 
 var Os string = ""
 
